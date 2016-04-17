@@ -3,20 +3,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class EditFile {
-	public static void main(){
-		EditFile ef = new EditFile();
-		try {
-		String contents = ef.readFile("raw_file.txt");
-		}
-		catch(IOException e){
-			System.out.println("your code is worse!");
-		}
-		System.out.println(contents);
-		StringBuffer sb = new StringBuffer(contents);
-		
-	}
-	String readFile(String fileName) throws IOException {
-    		BufferedReader br = new BufferedReader(new FileReader(fileName));
+	
+	public static void main(String...args) throws Exception{
+		BufferedReader br = new BufferedReader(new FileReader("raw_file.txt"));
     		try {
         		StringBuilder sb = new StringBuilder();
         		String line = br.readLine();
@@ -26,9 +15,12 @@ public class EditFile {
             		sb.append("\n");
             		line = br.readLine();
         		}
-        		return sb.toString();
+        		System.out.println(sb.toString());
     		} finally {
         			br.close();
     		}
+		
+		
 	}
+	
 }
